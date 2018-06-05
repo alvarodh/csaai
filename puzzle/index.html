@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/main.js"></script>
+    <title>Súper-Puzzle</title>
+  </head>
+  <body onload="randomphoto()" style="background-image:url(images/wallpaper.jpg)">
+    <img id="pollo" src="images/pollo.png">
+    <div id="header">
+      <img id="img1" src="#" onclick="createPuzzle('img1')">
+      <img id="img2" src="#" onclick="createPuzzle('img2')">
+      <img id="img3" src="#" onclick="createPuzzle('img3')">
+    </div>
+    <div id="buttons">
+      <button id="change" onclick="randomphoto()">
+        <span>Change pictures.</span>
+      </button>
+      <button id="start" onclick="cronometro.start()">
+        <span>Start.</span>
+      </button>
+      <button id="showrecords" onclick="scores.showRecords()">
+        <span>Show records.</span>
+      </button>
+      <button id="hiderecords" onclick="scores.hideRecords()">
+        <span>Hide records.</span>
+      </button>
+      <button id="restart" onclick="puzzle.restart()">
+        <span>Start again.</span>
+      </button>
+    </div>
+    <h1 id="select">
+      Select a picture.
+    </h1>
+    <img id="complete">
+    <div id="container">
+      <canvas id="puzzle" onclick="puzzle.move(event)"></canvas>
+      <div id="crono">
+        <span id="hours">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+      </div>
+    </div>
+    <div id="winmessage" style="background-image:url(images/cloud.png)">
+      <h1>You win!</h1>
+      <p>Press any picture for start again.</p>
+      <p id="time"></p>
+      <p>
+        Write your name and press <i>Send</i>
+        for enter at the hall of fame...
+      </p>
+      <form id="name">
+        <label><input type="text" id="nick" /></label>
+        <input type="button" value="Send" onclick="scores.addTime()" />
+      </form>
+    </div>
+    <table id="record">
+    </table>
+    <div id="hall">
+    </div>
+  </body>
+</html>

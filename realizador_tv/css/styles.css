@@ -1,0 +1,56 @@
+@font-face {
+  font-family: rick-morty;
+  src: url("font/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8.ttf");
+}
+
+#header {
+  text-align: center;
+  font-family: rick-morty;
+  font-size: 300%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #00FF00;
+  text-shadow: 4px 4px 5px grey;
+}
+
+#header2 {
+  text-align: center;
+  font-family: rick-morty;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 150%;
+  color: #00FF00;
+}
+
+#videos {
+  margin-left: 27.5%;
+  margin-right: 27.5%;
+  text-align: center;
+}
+
+#maincamera {
+  width: 80%;
+  border: 1px solid black
+}
+
+#camera1, #camera2, #camera3, #camera4 {
+  width: 20%;
+  border: 1px solid black
+}
+
+#playpause {
+  font-family: rick-morty;
+  font-size: 250%;
+  margin: 5%;
+  padding: 2.5%;
+  border-radius: 150px;
+  background-color: transparent;
+  border: none;
+  color: #00FF00;
+}
+
+#pollo {
+  position: static;
+  width: 2.5%;
+  float: left;
+}

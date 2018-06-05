@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js"></script>
+    <title>Súper-Realizador</title>
+  </head>
+  <body onload="charge()" style="background-image: url('images/bg.jpg')">
+    <img id="pollo" src="images/pollo.png">
+    <div id="videos">
+      <h1 id="header">SUPER-REALIZADOR</h1>
+      <p id="header2">Rick and Morty is love, Rick and Morty is life</p>
+      <video id="maincamera" src="#" loop></video>
+      <video id="camera1" src="video/escape.mp4" onclick="makeMain(this)" muted loop></video>
+      <video id="camera2" src="video/ice_cream.mp4" onclick="makeMain(this)" muted loop></video>
+      <video id="camera3" src="video/moomen.mp4" onclick="makeMain(this)" muted loop></video>
+      <video id="camera4" src="video/MrMeeseeks.mp4" onclick="makeMain(this)" muted loop></video>
+      <button id="playpause" onclick="playPause()">Play/Pause</button>
+    </div>
+  </body>
+</html>
