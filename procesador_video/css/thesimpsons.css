@@ -1,0 +1,28 @@
+@font-face {
+  font-family: the-simpsons;
+  src: url("lib/thesimpsons.ttf");
+}
+
+body {
+  font-family: the-simpsons;
+}
+
+#getFrame {
+  font-family: the-simpsons;
+}
+
+.option {
+  font-family: the-simpsons;
+}
+
+.rgboption, .hsloption, .greyoption {
+  font-family: the-simpsons;
+}
+
+#return, #play, #select {
+  font-family: the-simpsons;
+}
+
+#button {
+  font-family: the-simpsons;
+}
