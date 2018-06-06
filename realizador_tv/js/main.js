@@ -31,3 +31,38 @@ function makeMain (video) {
     main.play();
   }
 }
+
+setInterval(clock, 1000);
+
+function clock () {
+  var c = document.getElementById(MAIN);
+  var s = Math.floor(c.currentTime),
+      div = document.getElementById("time");
+  if (s < 10) {
+    t = "00:00:0" + s;
+  } else {
+    if (s >= 60) {
+      m = 0;
+      do {
+        m++;
+        s -= 60;
+      } while (s >= 60);
+      if (m > 10) {
+        if (s > 10) {
+          t = "00:" + m + ":" + s;
+        } else {
+          t = "00:" + m + ":0" + s;
+        }
+      } else {
+        if (s > 10) {
+          t = "00:0" + m + ":" + s;
+        } else {
+          t = "00:0" + m + ":0" + s;
+        }
+      }
+    } else {
+      t = "00:00:" + s;
+    }
+  }
+  div.innerHTML = t;
+}
