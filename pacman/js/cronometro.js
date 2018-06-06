@@ -29,8 +29,8 @@ Pacman.Crono = function () {
 	function create(div_id) {
 		var div = document.getElementById(div_id);
 		div.innerHTML = "<div class='clock' id='Hours'>00</div> \
-								  	 <div class='clock' id='Minutes'>:00</div> \
-								  	 <div class='clock' id='Seconds'>:00</div>";
+				 <div class='clock' id='Minutes'>:00</div> \
+				 <div class='clock' id='Seconds'>:00</div>";
 	}
 
 	function timer () {
