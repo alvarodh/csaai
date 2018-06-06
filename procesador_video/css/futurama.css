@@ -1,0 +1,28 @@
+@font-face {
+  font-family: futurama;
+  src: url("lib/futurama.ttf");
+}
+
+body {
+  font-family: futurama;
+}
+
+#getFrame {
+  font-family: futurama;
+}
+
+.option {
+  font-family: futurama;
+}
+
+.rgboption, .hsloption, .greyoption {
+  font-family: futurama;
+}
+
+#return, #play, #select {
+  font-family: futurama;
+}
+
+#button {
+  font-family: futurama;
+}
