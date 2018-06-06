@@ -81,8 +81,9 @@ function createPacman () {
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
+  // muros
   Pacman.WALLS = [[
-      {"move": [0, 9.5]}, {"line": [3, 9.5]},
+      {"move": [0, 9.5]}, {"line": [3, 9.5]}, //{opcion: [x, y]}
       {"curve": [3.5, 9.5, 3.5, 9]}, {"line": [3.5, 8]},
       {"curve": [3.5, 7.5, 3, 7.5]}, {"line": [1, 7.5]},
       {"curve": [0.5, 7.5, 0.5, 7]}, {"line": [0.5, 1]},
@@ -200,7 +201,7 @@ function createPacman () {
     ]
   ];
 
-  Object.prototype.clone = function () {
+  Object.prototype.clone = function () { // crear y/o clonar objeto
     var i, newObj = (this instanceof Array) ? [] : {};
     for (i in this) {
       if (i === 'clone') {
