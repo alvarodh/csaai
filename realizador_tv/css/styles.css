@@ -22,6 +22,16 @@
   color: #00FF00;
 }
 
+#clock {
+  color: #00FF00;
+  float: right;
+  width: 27.5%;
+  margin-top: 25%;
+  text-align: center;
+  font-size: 200%;
+  font-family: rick-morty;
+}
+
 #videos {
   margin-left: 27.5%;
   margin-right: 27.5%;
