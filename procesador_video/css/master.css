@@ -1,0 +1,87 @@
+body {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+  font-family: monospace;
+}
+
+#video {
+  width: 50%;
+  margin-top: 2.5%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#getFrame {
+  width: 15%;
+  height: 5%;
+  margin-top: 2.5%;
+  margin-left: 42.5%;
+  margin-right: 42.5%;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#posters {
+  margin-top: 2.5%;
+}
+
+.poster {
+  width: 30%;
+}
+
+#container {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  color: white;
+}
+
+#canvas {
+  width: 100%;
+}
+
+.option {
+  width: 25%;
+  margin-top: 2.5%;
+  float: left;
+  height: 5%;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.rgboption, .hsloption, .greyoption {
+  height: 5%;
+  margin-top: 2.5%;
+  width: 100%;
+  float: left;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#return, #play, #select {
+  width: 25%;
+  margin-top: 1%;
+  margin-left: 37.5%;
+  margin-right: 37.5%;
+  height: 5%;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#button {
+  border-radius: 150px;
+  font-size: 100%;
+  font-size: 100%;
+  background: none;
+  border: none;
+  color: white;
+}
