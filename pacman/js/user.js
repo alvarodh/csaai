@@ -1,5 +1,5 @@
 Pacman.User = function (game, map) {
-
+  // variables usuario
   var position  = null,
       direction = null,
       eaten     = null,
@@ -7,15 +7,15 @@ Pacman.User = function (game, map) {
       lives     = null,
       score     = 0,
       keyMap    = {};
-
+  // movimiento
   keyMap[KEY.ARROW_LEFT]  = LEFT;
   keyMap[KEY.ARROW_UP]    = UP;
   keyMap[KEY.ARROW_RIGHT] = RIGHT;
   keyMap[KEY.ARROW_DOWN]  = DOWN;
 
-  function addScore(nScore) {
+  function addScore(nScore) { // subir puntuacion
     score += nScore;
-    if (score >= 10000 && score - nScore < 10000) {
+    if (score >= 10000 && score - nScore < 10000) { // si hace mas de 10000, suma una vida
       lives++;
     }
   };
@@ -32,7 +32,7 @@ Pacman.User = function (game, map) {
     return lives;
   };
 
-  function initUser() {
+  function initUser() { // iniciar usuario
     score = 0;
     lives = 3;
     newLevel();
@@ -52,12 +52,12 @@ Pacman.User = function (game, map) {
     due = LEFT;
   };
 
-  function reset() {
+  function reset() { // reseteo usuario
     initUser();
     resetPosition();
   };
 
-  function keyDown(e) {
+  function keyDown(e) { // funcion al pulsar tecla
     if (typeof keyMap[e.keyCode] !== "undefined") {
       due = keyMap[e.keyCode];
       e.preventDefault();
@@ -93,7 +93,7 @@ Pacman.User = function (game, map) {
     }
   };
 
-  function next(pos, dir) {
+  function next(pos, dir) { // siguiente posicion
     return {
       "y" : pointToCoord(nextSquare(pos.y, dir)),
       "x" : pointToCoord(nextSquare(pos.x, dir)),
@@ -112,7 +112,7 @@ Pacman.User = function (game, map) {
     return ((due_lr && dir_lr) || (due_ud && dir_ud));
   };
 
-  function move(ctx) {
+  function move(ctx) { // movimiento
     var npos        = null,
         nextWhole   = null,
         oldPosition = position,
@@ -159,14 +159,14 @@ Pacman.User = function (game, map) {
     }
     position = npos;
     nextWhole = next(position, direction);
-    block = map.block(nextWhole);
+    block = map.block(nextWhole); // comprobar que hay en el siguente bloque
     var mid_square = (isMidSquare(position.y) || isMidSquare(position.x)),
         good_block = (block === Pacman.BISCUIT || block === Pacman.PILL);
     if (mid_square && good_block) {
       map.setBlock(nextWhole, Pacman.EMPTY);
-      addScore((block === Pacman.BISCUIT) ? 10 : 50);
+      addScore((block === Pacman.BISCUIT) ? 10 : 50); // si se come una bola gorda, suma 50, si es pequeña 10
       eaten++;
-      if (eaten === game.allPills) {
+      if (eaten === game.allPills) { // si se come todas las bolas completa el nivel
         game.completedLevel();
       }
       if (block === Pacman.PILL) {
@@ -217,7 +217,7 @@ Pacman.User = function (game, map) {
       };
   };
 
-  function drawDead(ctx, amount) {
+  function drawDead(ctx, amount) { // dibujar muerte
     var size = map.blockSize,
         half = size / 2;
     if (amount >= 1) {
@@ -234,7 +234,7 @@ Pacman.User = function (game, map) {
     ctx.fill();
   };
 
-  function draw(ctx) {
+  function draw(ctx) { // dibujar principal
     var s     = map.blockSize,
         angle = calcAngle(direction, position);
     ctx.fillStyle = PACMAN_COLOUR;
