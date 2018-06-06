@@ -1,0 +1,28 @@
+@font-face {
+  font-family: rick-morty;
+  src: url("lib/rickymorty.ttf");
+}
+
+body {
+  font-family: rick-morty;
+}
+
+#getFrame {
+  font-family: rick-morty;
+}
+
+.option {
+  font-family: rick-morty;
+}
+
+.rgboption, .hsloption, .greyoption {
+  font-family: rick-morty;
+}
+
+#return, #play, #select {
+  font-family: rick-morty;
+}
+
+#button {
+  font-family: rick-morty;
+}
