@@ -1,2 +1,2 @@
 # csaai
-Construcción de Servicios y Aplicaciones Audiovisuales en Internet
+Prácticas de Construcción de Servicios y Aplicaciones Audiovisuales en Internet
