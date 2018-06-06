@@ -1,16 +1,16 @@
 Pacman.Map = function (size) {
-
+  // variables mapa
   var height    = null,
       width     = null,
       blockSize = size,
       pillSize  = 0,
       map       = null;
 
-  function withinBounds(y, x) {
+  function withinBounds(y, x) { // si no se pueden poner bolas
     return y >= 0 && y < height && x >= 0 && x < width;
   }
 
-  function isWall(pos) {
+  function isWall(pos) { // si es un muro
     return withinBounds(pos.y, pos.x) && map[pos.y][pos.x] === Pacman.WALL;
   }
 
@@ -22,12 +22,12 @@ Pacman.Map = function (size) {
     return piece === Pacman.EMPTY || piece === Pacman.BISCUIT || piece === Pacman.PILL;
   }
 
-  function drawWall(ctx) {
+  function drawWall(ctx) { // dibujar muros
     var i, j, p, line;
     ctx.strokeStyle = "blue";
     ctx.lineWidth   = 5;
     ctx.lineCap     = "round";
-    for (i = 0; i < Pacman.WALLS.length; i++) {
+    for (i = 0; i < Pacman.WALLS.length; i++) { // dibujar mapa
       line = Pacman.WALLS[i];
       ctx.beginPath();
       for (j = 0; j < line.length; j++) {
@@ -47,21 +47,21 @@ Pacman.Map = function (size) {
     }
   }
 
-  function reset() {
+  function reset() { // reseteo
     map    = Pacman.MAP.clone();
     height = map.length;
     width  = map[0].length;
   };
 
-  function block(pos) {
+  function block(pos) { // que hay en ese bloque
     return map[pos.y][pos.x];
   };
 
-  function setBlock(pos, type) {
+  function setBlock(pos, type) { // cambiar bloque
     map[pos.y][pos.x] = type;
   };
 
-  function drawPills(ctx) {
+  function drawPills(ctx) { // dibujar bolas
     if (++pillSize > 30) {
       pillSize = 0;
     }
@@ -69,7 +69,7 @@ Pacman.Map = function (size) {
       for (j = 0; j < width; j++) {
         if (map[i][j] === Pacman.PILL) {
           ctx.beginPath();
-          ctx.fillStyle = "#000";
+          ctx.fillStyle = "#000"; // transparente
           ctx.fillRect((j * blockSize), (i * blockSize), blockSize, blockSize);
           ctx.fillStyle = "yellow";
           ctx.arc((j * blockSize) + blockSize / 2, (i * blockSize) + blockSize / 2, Math.abs(5 - (pillSize/3)), 0, Math.PI * 2, false);
@@ -80,7 +80,7 @@ Pacman.Map = function (size) {
     }
   };
 
-  function draw(ctx) {
+  function draw(ctx) { // dibujar
     var i, j, size = blockSize;
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, width * size, height * size);
@@ -92,9 +92,9 @@ Pacman.Map = function (size) {
     }
   };
 
-  function drawBlock(y, x, ctx) {
+  function drawBlock(y, x, ctx) { // dibujar bloque
     var layout = map[y][x];
-    if (layout === Pacman.PILL) {
+    if (layout === Pacman.PILL) { // si es una bola, no dibuja nada mas
       return;
     }
     ctx.beginPath();
@@ -102,7 +102,7 @@ Pacman.Map = function (size) {
       ctx.fillStyle = "#000";
       ctx.fillRect((x * blockSize), (y * blockSize),
       blockSize, blockSize);
-      if (layout === Pacman.BISCUIT) {
+      if (layout === Pacman.BISCUIT) { // si es una bola gorda
         ctx.fillStyle = "#FFF";
         ctx.fillRect((x * blockSize) + (blockSize / 2.5), (y * blockSize) + (blockSize / 2.5), blockSize / 6, blockSize / 6);
       }
