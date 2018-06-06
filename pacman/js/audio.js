@@ -1,12 +1,12 @@
 Pacman.Audio = function(game) {
-
+  // variables audio
   var files          = [],
       endEvents      = [],
       progressEvents = [],
       playing        = [];
 
-  function load(name, path, cb) {
-    var f = files[name] = document.createElement("audio");
+  function load(name, path, cb) { // cargar
+    var f = files[name] = document.createElement("audio"); // crear elemento audio
     progressEvents[name] = function(event) {
       progress(event, name, cb); 
     };
@@ -20,12 +20,11 @@ Pacman.Audio = function(game) {
   function progress(event, name, callback) {
     if (event.loaded === event.total && typeof callback === "function") {
       callback();
-      files[name].removeEventListener("canplaythrough",
-      progressEvents[name], true);
+      files[name].removeEventListener("canplaythrough", progressEvents[name], true);
     }
   };
 
-  function disableSound() {
+  function disableSound() { // quitar sonido
     for (var i = 0; i < playing.length; i++) {
       files[playing[i]].pause();
       files[playing[i]].currentTime = 0;
@@ -33,7 +32,7 @@ Pacman.Audio = function(game) {
     playing = [];
   };
 
-  function ended(name) {
+  function ended(name) { // sonido acabado
     var i, tmp = [], found = false;
     files[name].removeEventListener("ended", endEvents[name], true);
     for (i = 0; i < playing.length; i++) {
@@ -46,7 +45,7 @@ Pacman.Audio = function(game) {
     playing = tmp;
   };
 
-  function play(name) {
+  function play(name) { // sonido de inicio
     if (!game.soundDisabled()) {
       endEvents[name] = function() { ended(name); };
       playing.push(name);
@@ -55,13 +54,13 @@ Pacman.Audio = function(game) {
     }
   };
 
-  function pause() {
+  function pause() { // sonido de pausa
     for (var i = 0; i < playing.length; i++) {
       files[playing[i]].pause();
     }
   };
 
-  function resume() {
+  function resume() { // volver a empezar
     for (var i = 0; i < playing.length; i++) {
       files[playing[i]].play();
     }
